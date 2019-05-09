@@ -8,19 +8,19 @@ public:
 
 	char separator = '|';
 
-	char* firstName;
-	char* lastName;
-	char* nickName;
-	char* address;
-	char* workPhone;
-	char* privatePhone;
+	std::string firstName;
+	std::string lastName;
+	std::string nickName;
+	std::string address;
+	std::string workPhone;
+	std::string privatePhone;
 
 	Person();
-	Person(const char* fN, const char* lN, const char* nN, const char* a, const char* wP, const char* pP);
+	Person(const std::string fN, const std::string lN, const std::string nN, const std::string a, const std::string wP, const std::string pP);
 	~Person();
 	Person(const Person& p);
 
-	Person& operator=(const Person p);
-	bool operator==(const Person& p);
+	Person& operator=(const Person&);
+	bool operator==(const Person&);
 };
 

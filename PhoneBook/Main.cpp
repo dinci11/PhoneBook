@@ -16,8 +16,9 @@ int main()
 	pb.addPerson(p2);
 	Person p3("FirstName3", "LastName3", "nick3", "Addr3", "+123456789", "06123456789");
 	pb.addPerson(p3);
-	Person p4("FirstName4", "LastName4", "nick4", "Addr4", "+123456789", "06123456789");
-	pb.addPerson(p4);
+	Person p4;
+	p4 = p3;
+	pb.removePerson(p4);
 
 	pb.printPhoneBook();
 

@@ -4,11 +4,10 @@
 #include <fstream>
 
 
-PhoneBook::PhoneBook(const char* pbFileName, int pbSize)
+PhoneBook::PhoneBook(const std::string pbFileName, int pbSize)
 {
-	cout << "PhoneBook CTOR\n";
-	fileName = new char[strlen(pbFileName) + 1];
-	strcpy_s(fileName, strlen(pbFileName) + 1, pbFileName);
+	std::cout << "PhoneBook CTOR\n";
+	fileName = pbFileName;
 	contacts = new Person[size];
 	size = pbSize;
 	currentSize = 0;
@@ -16,12 +15,11 @@ PhoneBook::PhoneBook(const char* pbFileName, int pbSize)
 
 PhoneBook::PhoneBook(const PhoneBook & pb)
 {
-	cout << "PhoneBook CCTOR\n";
+	std::cout << "PhoneBook CCTOR\n";
 
 	size = pb.size;
 	currentSize = pb.currentSize;
-	fileName = new char[strlen(pb.fileName) + 1];
-	strcpy_s(fileName, strlen(pb.fileName) + 1, pb.fileName);
+	fileName = pb.fileName;
 	for (size_t i = 0; i < pb.size; i++)
 	{
 		contacts[i] = pb.contacts[i];
@@ -32,8 +30,8 @@ PhoneBook::PhoneBook(const PhoneBook & pb)
 
 PhoneBook::~PhoneBook()
 {
-	cout << "PhoneBook DTOR\n";
-	delete[] fileName;
+	std::cout << "PhoneBook DTOR\n";
+	delete[] contacts;
  }
 
 void PhoneBook::addPerson(Person p)
@@ -44,7 +42,7 @@ void PhoneBook::addPerson(Person p)
 		currentSize++;
 	}
 	else {
-		cout << "The phonebook is full!\n";
+		std::cout << "The phonebook is full!\n";
 	}
 
 
@@ -84,7 +82,7 @@ void PhoneBook::printPhoneBook()
 {
 	for (size_t i = 0; i < currentSize; i++)
 	{
-		cout << this->contacts[i].firstName;
+		std::cout << this->contacts[i].firstName;
 	}
-	cout << "\n";
+	std::cout << "\n";
 }

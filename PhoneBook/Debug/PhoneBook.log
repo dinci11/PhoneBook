@@ -1,6 +1,6 @@
 ﻿  PhoneBook.cpp
-d:\projects\phonebook\phonebook\phonebook.cpp(25): warning C4018: '<': signed/unsigned mismatch
-d:\projects\phonebook\phonebook\phonebook.cpp(56): warning C4018: '<': signed/unsigned mismatch
-d:\projects\phonebook\phonebook\phonebook.cpp(59): warning C4018: '<': signed/unsigned mismatch
-d:\projects\phonebook\phonebook\phonebook.cpp(85): warning C4018: '<': signed/unsigned mismatch
+d:\projects\phonebook\phonebook\phonebook.cpp(23): warning C4018: '<': signed/unsigned mismatch
+d:\projects\phonebook\phonebook\phonebook.cpp(54): warning C4018: '<': signed/unsigned mismatch
+d:\projects\phonebook\phonebook\phonebook.cpp(57): warning C4018: '<': signed/unsigned mismatch
+d:\projects\phonebook\phonebook\phonebook.cpp(83): warning C4018: '<': signed/unsigned mismatch
   PhoneBook.vcxproj -> D:\Projects\PhoneBook\Debug\PhoneBook.exe

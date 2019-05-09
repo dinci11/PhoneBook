@@ -1,18 +1,17 @@
 #pragma once
 #include "Person.h"
-#include <vector>
-using namespace std;
+#include <string>
 
 class PhoneBook
 {
 public:
 
-	char* fileName;
-	Person *contacts;
+	std::string fileName;
+	Person* contacts;
 	int currentSize;
 	int size;
 
-	PhoneBook(const char* pbFileName, int pbSize);
+	PhoneBook(const std::string pbFileName, int pbSize);
 	PhoneBook(const PhoneBook&);
 	~PhoneBook();
 	void addPerson(Person p);
