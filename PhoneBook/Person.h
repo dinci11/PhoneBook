@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include<iostream>
 
 class Person
 {
@@ -17,9 +18,9 @@ public:
 	Person();
 	Person(const char* fN, const char* lN, const char* nN, const char* a, const char* wP, const char* pP);
 	~Person();
-	Person(Person& p);
+	Person(const Person& p);
 
-	Person& operator=(Person p);
-	bool operator==(Person& p);
+	Person& operator=(const Person p);
+	bool operator==(const Person& p);
 };
 
