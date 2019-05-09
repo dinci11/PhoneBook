@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include<iostream>
+#include"memtrace.h"
 
 class Person
 {
@@ -22,5 +23,6 @@ public:
 
 	Person& operator=(const Person p);
 	bool operator==(const Person& p);
+
 };
 

@@ -1,13 +1,14 @@
 #pragma once
 #include "Person.h"
 #include <vector>
+#include"memtrace.h"
 using namespace std;
 
 class PhoneBook
 {
 public:
 
-	char* fileName;
+	string fileName;
 	Person *contacts;
 	int currentSize;
 	int size;

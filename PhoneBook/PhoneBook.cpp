@@ -7,9 +7,12 @@
 PhoneBook::PhoneBook(const char* pbFileName, int pbSize)
 {
 	cout << "PhoneBook CTOR\n";
-	fileName = new char[strlen(pbFileName) + 1];
-	strcpy_s(fileName, strlen(pbFileName) + 1, pbFileName);
+	fileName = pbFileName;
 	contacts = new Person[size];
+	for (size_t i = 0; i < pbSize; i++)
+	{
+		contacts[i] = Person();
+	}
 	size = pbSize;
 	currentSize = 0;
 }
@@ -20,8 +23,7 @@ PhoneBook::PhoneBook(const PhoneBook & pb)
 
 	size = pb.size;
 	currentSize = pb.currentSize;
-	fileName = new char[strlen(pb.fileName) + 1];
-	strcpy_s(fileName, strlen(pb.fileName) + 1, pb.fileName);
+	fileName = pb.fileName;
 	for (size_t i = 0; i < pb.size; i++)
 	{
 		contacts[i] = pb.contacts[i];
@@ -33,8 +35,9 @@ PhoneBook::PhoneBook(const PhoneBook & pb)
 PhoneBook::~PhoneBook()
 {
 	cout << "PhoneBook DTOR\n";
-	delete[] fileName;
- }
+	if(contacts!=NULL)
+	delete[] contacts;
+}
 
 void PhoneBook::addPerson(Person p)
 {
@@ -59,7 +62,7 @@ void PhoneBook::removePerson(Person p)
 			for (size_t j = i; j < currentSize; j++)
 			{
 				if (j == size - 1) {
-
+					contacts[j] = Person();
 				}
 				else
 				{
@@ -73,18 +76,47 @@ void PhoneBook::removePerson(Person p)
 
 void PhoneBook::savePhoneBook()
 {
-
+	ofstream file;
+	file.open(fileName+"txt");
+	file << size << "|" << currentSize<<"\n";
+	for (size_t i = 0; i < currentSize; i++)
+	{
+		file << contacts[i].firstName << "|" << contacts[i].lastName << "|" << contacts[i].nickName << "|" << contacts[i].address << "|" << contacts[i].workPhone << "|" << contacts[i].privatePhone << "\n";
+	}
 }
 
 void PhoneBook::loadPhoneBook()
 {
+	string line;
+	ifstream file(fileName + "txt");
+	if (file.is_open()) {
+		int lineCntr = 0;
+		while (getline(file,line))
+		{
+			if (lineCntr == 0) {
+				
+			}
+			else
+			{
+
+			}
+		}
+		file.close();
+	}
+	else
+	{
+		std::cout << "File cannot open!\n";
+	}
 }
 
 void PhoneBook::printPhoneBook()
 {
+
+	cout << "Firstname\tLastname\tNickname\tAddress\t\tWorkphone\tPrivatephone\n";
+	cout << "______________________________________________________________________________________________\n";
 	for (size_t i = 0; i < currentSize; i++)
 	{
-		cout << this->contacts[i].firstName;
+		cout << contacts[i].firstName << "\t" << contacts[i].lastName << "\t" << contacts[i].nickName << "\t\t" << contacts[i].address << "\t" << contacts[i].workPhone << "\t" << contacts[i].privatePhone << "\n";
 	}
 	cout << "\n";
 }
