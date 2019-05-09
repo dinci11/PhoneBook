@@ -1,11 +1,2 @@
 ﻿  Main.cpp
-  Person.cpp
-  PhoneBook.cpp
-d:\projects\phonebook\phonebook\phonebook.cpp(12): warning C4018: '<': signed/unsigned mismatch
-d:\projects\phonebook\phonebook\phonebook.cpp(27): warning C4018: '<': signed/unsigned mismatch
-d:\projects\phonebook\phonebook\phonebook.cpp(59): warning C4018: '<': signed/unsigned mismatch
-d:\projects\phonebook\phonebook\phonebook.cpp(62): warning C4018: '<': signed/unsigned mismatch
-d:\projects\phonebook\phonebook\phonebook.cpp(82): warning C4018: '<': signed/unsigned mismatch
-d:\projects\phonebook\phonebook\phonebook.cpp(117): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
   PhoneBook.vcxproj -> D:\Projects\PhoneBook\Debug\PhoneBook.exe

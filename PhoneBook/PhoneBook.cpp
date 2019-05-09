@@ -3,7 +3,10 @@
 #include <iostream>
 #include <fstream>
 
-
+/*
+Constructor with parmaters
+Set the file where to save the contacts and set the size of the contavts container
+*/
 PhoneBook::PhoneBook(const char* pbFileName, int pbSize)
 {
 	cout << "PhoneBook CTOR\n";
@@ -17,6 +20,9 @@ PhoneBook::PhoneBook(const char* pbFileName, int pbSize)
 	currentSize = 0;
 }
 
+/*
+Copy constructor
+*/
 PhoneBook::PhoneBook(const PhoneBook & pb)
 {
 	cout << "PhoneBook CCTOR\n";
@@ -31,7 +37,10 @@ PhoneBook::PhoneBook(const PhoneBook & pb)
 
 }
 
-
+/*
+Destructor
+Delete the allocated memory for the contacts
+*/
 PhoneBook::~PhoneBook()
 {
 	cout << "PhoneBook DTOR\n";
@@ -39,6 +48,10 @@ PhoneBook::~PhoneBook()
 	delete[] contacts;
 }
 
+/*
+Add new Person to the contacts
+If the container is full than cannot add new
+*/
 void PhoneBook::addPerson(Person p)
 {
 	if (currentSize < size)
@@ -54,6 +67,10 @@ void PhoneBook::addPerson(Person p)
 
 }
 
+/*
+Remove Person from contacts
+The remaining Person pointers are shifted to left, so the empty spaces are always at the end of the array
+*/
 void PhoneBook::removePerson(Person p)
 {
 	for (size_t i = 0; i < currentSize; i++)
@@ -69,11 +86,17 @@ void PhoneBook::removePerson(Person p)
 					contacts[j] = contacts[j + 1];
 				}
 			}
+			currentSize--;
 		}
 	}
-	currentSize--;
+	
 }
 
+/*
+Save the contacts to the file system
+The extension is .txt
+The first line contains the total and the current size of the saved phonebook
+*/
 void PhoneBook::savePhoneBook()
 {
 	ofstream file;
@@ -85,6 +108,7 @@ void PhoneBook::savePhoneBook()
 	}
 }
 
+/*
 void PhoneBook::loadPhoneBook()
 {
 	string line;
@@ -108,7 +132,11 @@ void PhoneBook::loadPhoneBook()
 		std::cout << "File cannot open!\n";
 	}
 }
+*/
 
+/*
+Print out the available contacts to the console
+*/
 void PhoneBook::printPhoneBook()
 {
 

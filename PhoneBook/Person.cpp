@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "Person.h"
 
+/*
+Default Constructor for Person
+*/
 Person::Person()
 {
 	std::cout << "Person DefCTOR\n";
@@ -12,6 +15,9 @@ Person::Person()
 	privatePhone = new char();
 }
 
+/*
+Constructor with paramters for set fields
+*/
 Person::Person(const char* pFirstName, const char* pLastName, const char* pNickName, const char* pAddress, const char* pWorkPhone, const char* pPrivatePhone)
 {
 	std::cout << "Person ParamCTOR\n";
@@ -30,7 +36,9 @@ Person::Person(const char* pFirstName, const char* pLastName, const char* pNickN
 	strcpy_s(privatePhone, strlen(pPrivatePhone) + 1, pPrivatePhone);
 }
 
-
+/*
+Copy constructor
+*/
 Person::Person(const Person & p)
 {
 	std::cout << "Person CCTOR\n";
@@ -49,7 +57,10 @@ Person::Person(const Person & p)
 	strcpy_s(privatePhone, strlen(p.privatePhone) + 1, p.privatePhone);
 }
 
-
+/*
+Destructor
+Delete all the allocated memory for fields
+*/
 Person::~Person()
 {
 	std::cout << "Person DCTOR\n";
@@ -61,6 +72,9 @@ Person::~Person()
 	delete[] privatePhone;
 }
 
+/*
+Override operator=
+*/
 Person& Person::operator=(const Person p)
 {
 	std::cout << "Person operator= \n";
@@ -84,6 +98,10 @@ Person& Person::operator=(const Person p)
 	return *this;
 }
 
+/*
+Override operator==
+Two Person are equal if their firstname are equals and theri lastname are quals and their nickname are equals
+*/
 bool Person::operator==(const Person & p)
 {
 	std::cout << "Person operator== \n";
