@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="gtest_lite.h" />
     <ClInclude Include="memtrace.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Person.h" />

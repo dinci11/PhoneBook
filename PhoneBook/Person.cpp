@@ -1,12 +1,16 @@
 #include "pch.h"
 #include "Person.h"
+#define PRINT_METHOD false
 
 /*
 Default Constructor for Person
 */
 Person::Person()
 {
+#if PRINT_METHOD true
 	std::cout << "Person DefCTOR\n";
+#endif // PRINT_METHOD true
+
 	firstName = new char();
 	lastName = new char();
 	nickName = new char();
@@ -20,7 +24,10 @@ Constructor with paramters for set fields
 */
 Person::Person(const char* pFirstName, const char* pLastName, const char* pNickName, const char* pAddress, const char* pWorkPhone, const char* pPrivatePhone)
 {
+#if PRINT_METHOD true
 	std::cout << "Person ParamCTOR\n";
+#endif // PRINT_METHOD true
+
 	firstName = new char[strlen(pFirstName) + 1];
 	lastName = new char[strlen(pLastName) + 1];
 	nickName = new char[strlen(pNickName) + 1];
@@ -41,7 +48,10 @@ Copy constructor
 */
 Person::Person(const Person & p)
 {
+#if PRINT_METHOD ture
 	std::cout << "Person CCTOR\n";
+#endif // PRINT_METHOD ture
+
 	firstName = new char[strlen(p.firstName) + 1];
 	lastName = new char[strlen(p.lastName) + 1];
 	nickName = new char[strlen(p.nickName) + 1];
@@ -63,7 +73,10 @@ Delete all the allocated memory for fields
 */
 Person::~Person()
 {
+#if PRINT_METHOD true
 	std::cout << "Person DCTOR\n";
+#endif // PRINT_METHOD true
+
 	delete[] firstName;
 	delete[] lastName;
 	delete[] nickName;
@@ -77,7 +90,10 @@ Override operator=
 */
 Person& Person::operator=(const Person p)
 {
+#if PRINT_METHOD true
 	std::cout << "Person operator= \n";
+#endif // PRINT_METHOD true
+
 	if (this != &p) {
 
 		firstName = new char[strlen(p.firstName) + 1];
@@ -104,7 +120,10 @@ Two Person are equal if their firstname are equals and theri lastname are quals 
 */
 bool Person::operator==(const Person & p)
 {
+#if PRINT_METHOD true
 	std::cout << "Person operator== \n";
+#endif // PRINT_METHOD true
+
 	if (strcmp(firstName, p.firstName) == 0 && strcmp(lastName, p.lastName) == 0 && strcmp(nickName, p.nickName) == 0) {
 		return true;
 	}

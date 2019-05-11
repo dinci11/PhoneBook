@@ -17,7 +17,7 @@ public:
 	char* privatePhone;
 
 	Person();
-	Person(const char* fN, const char* lN, const char* nN, const char* a, const char* wP, const char* pP);
+	Person(const char* fN, const char* lN, const char* nN, const char* a="", const char* wP="", const char* pP="");
 	~Person();
 	Person(const Person& p);
 

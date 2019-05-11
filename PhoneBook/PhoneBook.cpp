@@ -2,6 +2,7 @@
 #include "PhoneBook.h"
 #include <iostream>
 #include <fstream>
+#define PRINT_METHOD false
 
 /*
 Constructor with parmaters
@@ -9,14 +10,17 @@ Set the file where to save the contacts and set the size of the contavts contain
 */
 PhoneBook::PhoneBook(const char* pbFileName, int pbSize)
 {
+#if PRINT_METHOD true
 	cout << "PhoneBook CTOR\n";
+#endif // 0
+
 	fileName = pbFileName;
+	size = pbSize;
 	contacts = new Person[size];
-	for (size_t i = 0; i < pbSize; i++)
+	for (size_t i = 0; i < size; i++)
 	{
 		contacts[i] = Person();
 	}
-	size = pbSize;
 	currentSize = 0;
 }
 
@@ -25,7 +29,9 @@ Copy constructor
 */
 PhoneBook::PhoneBook(const PhoneBook & pb)
 {
+#if PRINT_METHOD true
 	cout << "PhoneBook CCTOR\n";
+#endif // PRINT_METHOD true
 
 	size = pb.size;
 	currentSize = pb.currentSize;
@@ -43,9 +49,12 @@ Delete the allocated memory for the contacts
 */
 PhoneBook::~PhoneBook()
 {
+#if PRINT_METHOD true
 	cout << "PhoneBook DTOR\n";
-	if(contacts!=NULL)
-	delete[] contacts;
+#endif
+
+	if (contacts != NULL)
+		delete[] contacts;
 }
 
 /*
@@ -89,7 +98,7 @@ void PhoneBook::removePerson(Person p)
 			currentSize--;
 		}
 	}
-	
+
 }
 
 /*
@@ -100,8 +109,8 @@ The first line contains the total and the current size of the saved phonebook
 void PhoneBook::savePhoneBook()
 {
 	ofstream file;
-	file.open(fileName+"txt");
-	file << size << "|" << currentSize<<"\n";
+	file.open(fileName + "txt");
+	file << size << "|" << currentSize << "\n";
 	for (size_t i = 0; i < currentSize; i++)
 	{
 		file << contacts[i].firstName << "|" << contacts[i].lastName << "|" << contacts[i].nickName << "|" << contacts[i].address << "|" << contacts[i].workPhone << "|" << contacts[i].privatePhone << "\n";
@@ -118,7 +127,7 @@ void PhoneBook::loadPhoneBook()
 		while (getline(file,line))
 		{
 			if (lineCntr == 0) {
-				
+
 			}
 			else
 			{
